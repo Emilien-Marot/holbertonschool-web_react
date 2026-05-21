@@ -1,3 +1,4 @@
+//Exercise 1
 interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
@@ -5,19 +6,6 @@ interface Teacher {
   yearsOfExperience?: number;
   location: string;
   [key: string]: any;
-}
-
-interface Directors extends Teacher {
-  numberOfReports: number
-}
-
-interface printTeacherFunction {
-  (firstName: string, lastName: string): string
-}
-
-let printTeacher: printTeacherFunction
-printTeacher = function (firstName: string, lastName: string): string {
-  return(`${firstName[0]}. ${lastName}`)
 }
 
 const teacher3: Teacher = {
@@ -30,6 +18,11 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
+//Exercise 2
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
@@ -38,3 +31,41 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 console.log(director1);
+
+//Exercise 3
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+let printTeacher: printTeacherFunction;
+printTeacher = function (firstName: string, lastName: string): string {
+  return(`${firstName[0]}. ${lastName}`);
+}
+
+//TODO Exercise 4
+interface studentInterface {
+  firstName: string;
+  lastName: string;
+}
+
+interface studentConstructor {
+  new (firstName: string, lastName: string): studentInterface;
+}
+
+class StudentClass implements studentInterface {
+  firstName: string;
+  lastName: string;
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  workOnHomework = () => {
+    return("Currently working");
+  }
+  displayName = () => {
+    return(this.firstName);
+  }
+}
+
+let student = new StudentClass("Emilien", "Marot");
+console.log(student);
