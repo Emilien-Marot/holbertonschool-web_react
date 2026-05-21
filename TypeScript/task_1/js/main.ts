@@ -60,12 +60,12 @@ class StudentClass implements studentInterface {
     this.lastName = lastName;
   }
   workOnHomework = () => {
-    return("Currently working");
+    return('Currently working');
   }
   displayName = () => {
     return(this.firstName);
   }
 }
 
-let student = new StudentClass("Emilien", "Marot");
+let student = new StudentClass('Emilien', 'Marot');
 console.log(student);
